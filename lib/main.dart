@@ -78,10 +78,10 @@ class LinkedLabelRadio extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            recognizer: TapGestureRecognizer()
-              ..onTap = () {
-                print('Label has been tapped.');
-              },
+//            recognizer: TapGestureRecognizer()
+//              ..onTap = () {
+//                print('Label has been tapped.');
+//              },
           ),
         ],
       ),

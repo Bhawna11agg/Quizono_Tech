@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1031135701159",
+    "firebase_url": "https://quizono-tech.firebaseio.com",
+    "project_id": "quizono-tech",
+    "storage_bucket": "quizono-tech.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1031135701159:android:caec69ed858b18220e9382",
+        "android_client_info": {
+          "package_name": "com.example.quizono"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1031135701159-4ad7j365ls19ml615t0nugvl7erj2tvj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.quizono",
+            "certificate_hash": "1070800d0b213084985b20a8286991baacb1cb84"
+          }
+        },
+        {
+          "client_id": "1031135701159-gn7hdkrj97qg33of9v55v3dassq2vblk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5yqgkSYyx_wSQLzBTUAPV_owKzHYmFz8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1031135701159-gn7hdkrj97qg33of9v55v3dassq2vblk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -3,7 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:quizono/category.dart';
+import 'package:quizono/categories.dart';
 
 void main() {
   runApp(MyApp());
@@ -98,10 +98,11 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'hi',
       home: SafeArea(
         child: Scaffold(
-          body: Category(),
+          body: Categories(),
           // body: FutureBuilder<List<Post>>(
           //       future: fetchPost(),
           //     builder:(context,snapshot) {

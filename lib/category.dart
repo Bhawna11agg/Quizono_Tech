@@ -9,9 +9,10 @@ class _CategoryState extends State<Category> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow,
+      backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -22,7 +23,7 @@ class _CategoryState extends State<Category> {
                   },
                   child: Container(
                     color: Colors.white,
-                    width: 200,
+                    width: 150,
                     margin: EdgeInsets.all(10),
                     child: Column(
                       children: [
@@ -49,7 +50,7 @@ class _CategoryState extends State<Category> {
                   },
                   child: Container(
                     color: Colors.white,
-                    width: 200,
+                    width: 150,
                     margin: EdgeInsets.all(10),
                     child: Column(
                       children: [
@@ -81,7 +82,7 @@ class _CategoryState extends State<Category> {
                   },
                   child: Container(
                     color: Colors.white,
-                    width: 200,
+                    width: 150,
                     margin: EdgeInsets.all(10),
                     child: Column(
                       children: [
@@ -108,7 +109,7 @@ class _CategoryState extends State<Category> {
                   },
                   child: Container(
                     color: Colors.white,
-                    width: 200,
+                    width: 150,
                     margin: EdgeInsets.all(10),
                     child: Column(
                       children: [
@@ -140,7 +141,7 @@ class _CategoryState extends State<Category> {
                   },
                   child: Container(
                     color: Colors.white,
-                    width: 200,
+                    width: 150,
                     margin: EdgeInsets.all(10),
                     child: Column(
                       children: [
@@ -167,7 +168,7 @@ class _CategoryState extends State<Category> {
                   },
                   child: Container(
                     color: Colors.white,
-                    width: 200,
+                    width: 150,
                     margin: EdgeInsets.all(10),
                     child: Column(
                       children: [
@@ -199,7 +200,7 @@ class _CategoryState extends State<Category> {
                   },
                   child: Container(
                     color: Colors.white,
-                    width: 200,
+                    width: 150,
                     margin: EdgeInsets.all(10),
                     child: Column(
                       children: [
@@ -226,7 +227,7 @@ class _CategoryState extends State<Category> {
                   },
                   child: Container(
                     color: Colors.white,
-                    width: 200,
+                    width: 150,
                     margin: EdgeInsets.all(10),
                     child: Column(
                       children: [
@@ -264,11 +265,10 @@ void _settingModalBottomSheet(context) {
           child: new Wrap(
             children: <Widget>[
               new ListTile(
-                  leading: new Icon(Icons.music_note),
-                  title: Text('Number of Questions'),
-                  onTap: () => {}),
+                title: Text('Number of Questions'),
+                onTap: () => {},
+              ),
               new ListTile(
-                leading: new Icon(Icons.videocam),
                 title: new Text('Level of Difficulty'),
                 onTap: () => {},
               ),

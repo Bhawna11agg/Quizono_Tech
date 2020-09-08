@@ -26,6 +26,7 @@ class _CategoriesState extends State<Categories> {
     "Celebrity",
     "Politics"
   ];
+  int _value = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +40,124 @@ class _CategoriesState extends State<Categories> {
             itemBuilder: (BuildContext context, int index) {
               return GestureDetector(
                 onTap: () {
-                  _settingModalBottomSheet(context);
+                  showModalBottomSheet(
+                      context: context,
+                      builder: (BuildContext bc) {
+                        return Container(
+                          child: new Wrap(
+                            children: <Widget>[
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  new ListTile(
+                                    title: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        new Text('Number of Questions'),
+                                        Wrap(
+                                          alignment: WrapAlignment.center,
+                                          spacing: 12.0,
+                                          children: <Widget>[
+                                            ChoiceChip(
+                                              pressElevation: 0.0,
+                                              selectedColor: Colors.transparent,
+                                              backgroundColor: Colors.grey[100],
+                                              label: Text("10"),
+                                              selected: _value == 0,
+                                              onSelected: (bool selected) {
+                                                setState(() {
+                                                  _value = selected ? 0 : null;
+                                                });
+                                              },
+                                            ),
+                                            ChoiceChip(
+                                              pressElevation: 0.0,
+                                              selectedColor: Colors.transparent,
+                                              backgroundColor: Colors.grey[100],
+                                              label: Text("20"),
+                                              selected: _value == 1,
+                                              onSelected: (bool selected) {
+                                                setState(() {
+                                                  _value = selected ? 1 : null;
+                                                });
+                                              },
+                                            ),
+                                            ChoiceChip(
+                                              pressElevation: 0.0,
+                                              selectedColor: Colors.transparent,
+                                              backgroundColor: Colors.grey[100],
+                                              label: Text("50"),
+                                              selected: _value == 2,
+                                              onSelected: (bool selected) {
+                                                setState(() {
+                                                  _value = selected ? 2 : null;
+                                                });
+                                              },
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    onTap: () => {},
+                                  ),
+                                ],
+                              ),
+                              new ListTile(
+                                title: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    new Text('Level of Difficulty'),
+                                    Wrap(
+                                      alignment: WrapAlignment.center,
+                                      spacing: 12.0,
+                                      children: <Widget>[
+                                        ChoiceChip(
+                                          pressElevation: 0.0,
+                                          selectedColor: Colors.transparent,
+                                          backgroundColor: Colors.grey[100],
+                                          label: Text("Low"),
+                                          selected: _value == 0,
+                                          onSelected: (bool selected) {
+                                            setState(() {
+                                              _value = selected ? 0 : null;
+                                            });
+                                          },
+                                        ),
+                                        ChoiceChip(
+                                          pressElevation: 0.0,
+                                          selectedColor: Colors.transparent,
+                                          backgroundColor: Colors.grey[100],
+                                          label: Text("Medium"),
+                                          selected: _value == 1,
+                                          onSelected: (bool selected) {
+                                            setState(() {
+                                              _value = selected ? 1 : null;
+                                            });
+                                          },
+                                        ),
+                                        ChoiceChip(
+                                          pressElevation: 0.0,
+                                          selectedColor: Colors.transparent,
+                                          backgroundColor: Colors.grey[100],
+                                          label: Text("Hard"),
+                                          selected: _value == 2,
+                                          onSelected: (bool selected) {
+                                            setState(() {
+                                              _value = selected ? 2 : null;
+                                            });
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                onTap: () => {},
+                              ),
+                            ],
+                          ),
+                        );
+                      });
                 },
                 child: new GridTile(
                     child: Container(
@@ -70,35 +188,4 @@ class _CategoriesState extends State<Categories> {
           )),
     );
   }
-}
-
-void _settingModalBottomSheet(context) {
-  showModalBottomSheet(
-      context: context,
-      builder: (BuildContext bc) {
-        return Container(
-          child: new Wrap(
-            children: <Widget>[
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  new ListTile(
-                    title: Text('Number of Questions'),
-                    onTap: () => {},
-                  ),
-                ],
-              ),
-              new ListTile(
-                title: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    new Text('Level of Difficulty'),
-                  ],
-                ),
-                onTap: () => {},
-              ),
-            ],
-          ),
-        );
-      });
 }

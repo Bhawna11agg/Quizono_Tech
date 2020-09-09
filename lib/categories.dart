@@ -27,6 +27,7 @@ class _CategoriesState extends State<Categories> {
     "Celebrity",
     "Politics"
   ];
+  List<String> category = ["10", "11", "12", "17", "21", "25", "26", "24"];
   int _value = 0;
   @override
   Widget build(BuildContext context) {
@@ -44,7 +45,9 @@ class _CategoriesState extends State<Categories> {
                   var route = new MaterialPageRoute(
                       builder: (BuildContext buildContext) {
                     new Question(
-                        amount: "10", category: "27", difficulty: "easy");
+                        amount: "10",
+                        category: category[index],
+                        difficulty: "easy");
                   });
                   Navigator.push(context, route);
                   // showModalBottomSheet(

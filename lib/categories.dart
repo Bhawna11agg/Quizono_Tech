@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'question.dart';
 class Categories extends StatefulWidget {
   @override
   _CategoriesState createState() => _CategoriesState();
@@ -100,10 +99,6 @@ class _CategoriesState extends State<Categories> {
                                       ],
                                     ),
                                     onTap: () => {
-                                    Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                    builder: (context) => Question())),
                                     },
                                   ),
                                 ],

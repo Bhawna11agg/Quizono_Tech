@@ -83,6 +83,11 @@ int index = 0;
 int count = 0;
 
 class Question extends StatefulWidget {
+  final String amount;
+  final String category;
+  final String difficulty;
+  Question({Key key, this.amount, this.category, this.difficulty})
+      : super(key: key);
   @override
   _QuestionState createState() => _QuestionState();
 }

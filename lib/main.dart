@@ -21,7 +21,7 @@ class _MyAppState extends State<MyApp> {
       title: 'hi',
       home: SafeArea(
         child: Scaffold(
-          body: Question(),
+          body: Categories(),
         ),
       ),
     );

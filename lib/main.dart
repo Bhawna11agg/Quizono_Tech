@@ -18,7 +18,6 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'hi',
       home: SafeArea(
         child: Scaffold(
           body: Categories(),

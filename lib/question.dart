@@ -1,33 +1,10 @@
-import 'dart:async';
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-
-Future<List<Post>> fetchPost() async {
-  final response = await http.get(
-      'https://opentdb.com/api.php?amount=10&category=27&difficulty=easy&type=multiple');
-  if (response.statusCode == 200) {
-    List jsonResponse = json.decode(response.body)["results"];
-    return jsonResponse.map((post) => new Post.fromMap(post)).toList();
-  } else {
-    throw Exception('Failed to load ');
-  }
-}
+import 'package:quizono/module/Post.dart';
+import 'Oven_Trivia_Call.dart';
+import 'ui/Result.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 AsyncSnapshot snapshot_copy;
-
-class Post {
-  final String question;
-  final String correctAnswer;
-  final List<dynamic> incorrectAnswers;
-
-  Post({this.question, this.correctAnswer, this.incorrectAnswers});
-
-  Post.fromMap(Map<String, dynamic> data)
-      : question = data["question"],
-        correctAnswer = data["correct_answer"],
-        incorrectAnswers = data["incorrect_answers"];
-}
 
 class LabeledRadio extends StatelessWidget {
   const LabeledRadio({
@@ -57,18 +34,19 @@ class LabeledRadio extends StatelessWidget {
             Radio<int>(
               groupValue: groupValue,
               value: value,
-              activeColor: Color(0xff039BE5),
-              hoverColor: Colors.lightBlueAccent,
+              activeColor: Colors.white,
+              hoverColor: Colors.white,
               onChanged: (int newValue) {
                 onChanged(newValue);
               },
             ),
             Text(
               label,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
+              style: GoogleFonts.openSans(
+                textStyle: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
               ),
             ),
           ],
@@ -80,9 +58,15 @@ class LabeledRadio extends StatelessWidget {
 
 int _character = -1;
 int index = 0;
-int count = 0;
+int correct = 0;
 
 class Question extends StatefulWidget {
+  final String amount;
+  final String category;
+  final String difficulty;
+  Question({Key key, this.amount, this.category, this.difficulty})
+      : super(key: key);
+
   @override
   _QuestionState createState() => _QuestionState();
 }
@@ -92,11 +76,10 @@ class _QuestionState extends State<Question> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'hi',
       home: SafeArea(
         child: Scaffold(
           body: FutureBuilder<List<Post>>(
-              future: fetchPost(),
+              future: fetchPost(widget.category),
               builder: (context, snapshot) {
                 if (!snapshot.hasData) {
                   return Center(child: CircularProgressIndicator());
@@ -125,7 +108,7 @@ class _MyApp2State extends State<MyApp2> {
       body: Center(
         child: Expanded(
           child: Container(
-            color: Color(0xff01010D),
+            color: Color(0xff1a1c1e),
             child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -134,9 +117,9 @@ class _MyApp2State extends State<MyApp2> {
                     padding: EdgeInsets.all(10.0),
                     margin: EdgeInsets.all(20.0),
                     decoration: new BoxDecoration(
-                        color: Colors.black,
+                        color: Color(0xff1a1c1e),
                         borderRadius:
-                            new BorderRadius.all(Radius.circular(20.0)),
+                        new BorderRadius.all(Radius.circular(20.0)),
                         boxShadow: [
                           BoxShadow(
                               color: Colors.black12, offset: Offset(2.0, 2.0)),
@@ -144,10 +127,11 @@ class _MyApp2State extends State<MyApp2> {
                         ]),
                     child: Text(
                       snapshot_copy.data[index].question,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
+                      style: GoogleFonts.openSans(
+                        textStyle: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
                       ),
                     ),
                     //color: Colors.orange,
@@ -159,7 +143,7 @@ class _MyApp2State extends State<MyApp2> {
                         margin: EdgeInsets.fromLTRB(40.0, 0.0, 40.0, 20.0),
                         shape: RoundedRectangleBorder(
                           side: new BorderSide(
-                              color: Color(0xff89CFF0), width: 2.0),
+                              color: Color(0xff414449), width: 2.0),
                           borderRadius: BorderRadius.circular(15.0),
                         ),
                         child: LabeledRadio(
@@ -171,20 +155,20 @@ class _MyApp2State extends State<MyApp2> {
                             setState(() {
                               _character = value;
                               if (snapshot_copy
-                                      .data[index].incorrectAnswers[3] ==
+                                  .data[index].incorrectAnswers[3] ==
                                   snapshot_copy.data[index].correctAnswer) {
-                                // count++;
+                                correct++;
                               }
                             });
                           },
                         ),
-                        color: Color(0xff01010D),
+                        color: Color(0xff414449),
                       ),
                       Card(
                         margin: EdgeInsets.fromLTRB(40.0, 0.0, 40.0, 20.0),
                         shape: RoundedRectangleBorder(
                           side: new BorderSide(
-                              color: Color(0xff89CFF0), width: 2.0),
+                              color: Color(0xff414449), width: 2.0),
                           borderRadius: BorderRadius.circular(15.0),
                         ),
                         child: LabeledRadio(
@@ -196,20 +180,20 @@ class _MyApp2State extends State<MyApp2> {
                             setState(() {
                               _character = value;
                               if (snapshot_copy
-                                      .data[index].incorrectAnswers[0] ==
+                                  .data[index].incorrectAnswers[0] ==
                                   snapshot_copy.data[index].correctAnswer) {
-                                // count++;
+                                 correct++;
                               }
                             });
                           },
                         ),
-                        color: Color(0xff01010D),
+                        color: Color(0xff414449),
                       ),
                       Card(
                         margin: EdgeInsets.fromLTRB(40.0, 0.0, 40.0, 20.0),
                         shape: RoundedRectangleBorder(
                           side: new BorderSide(
-                              color: Color(0xff89CFF0), width: 2.0),
+                              color: Color(0xff414449), width: 2.0),
                           borderRadius: BorderRadius.circular(15.0),
                         ),
                         child: LabeledRadio(
@@ -221,20 +205,20 @@ class _MyApp2State extends State<MyApp2> {
                             setState(() {
                               _character = value;
                               if (snapshot_copy
-                                      .data[index].incorrectAnswers[1] ==
+                                  .data[index].incorrectAnswers[1] ==
                                   snapshot_copy.data[index].correctAnswer) {
-                                // count++;
+                                 correct++;
                               }
                             });
                           },
                         ),
-                        color: Color(0xff01010D),
+                        color: Color(0xff414449),
                       ),
                       Card(
                         margin: EdgeInsets.fromLTRB(40.0, 0.0, 40.0, 20.0),
                         shape: RoundedRectangleBorder(
                           side: new BorderSide(
-                              color: Color(0xff89CFF0), width: 2.0),
+                              color: Color(0xff414449), width: 2.0),
                           borderRadius: BorderRadius.circular(15.0),
                         ),
                         child: LabeledRadio(
@@ -246,37 +230,30 @@ class _MyApp2State extends State<MyApp2> {
                             setState(() {
                               _character = value;
                               if (snapshot_copy
-                                      .data[index].incorrectAnswers[2] ==
+                                  .data[index].incorrectAnswers[2] ==
                                   snapshot_copy.data[index].correctAnswer) {
-                                //  count++;
+                                 correct++;
                               }
                             });
                           },
                         ),
-                        color: Color(0xff01010D),
+                        color:Color(0xff414449),
                       ),
                       GestureDetector(
-                        child: Container(
-                          padding: EdgeInsets.fromLTRB(25, 15, 25, 15),
-                          margin: EdgeInsets.fromLTRB(25, 15, 25, 15),
-                          decoration: new BoxDecoration(
-                              color: Color(0xff039BE5),
-                              borderRadius:
-                                  new BorderRadius.all(Radius.circular(25.0)),
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Colors.black12,
-                                    offset: Offset(2.0, 2.0)),
-                                //shadow to container
-                              ]),
-                          child: Text(
-                            index < snapshot_copy.data.length - 1
-                                ? "Next"
-                                : "Submit",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 25.0,
-                              fontWeight: FontWeight.bold,
+                        child: Padding(
+                          padding: const  EdgeInsets.fromLTRB(50, 10, 50, 10),
+                          child: Card(
+                            color: Color(0xff1a1c1e),
+                            child: Text(
+                              index < snapshot_copy.data.length - 1
+                                  ? "Next"
+                                  : "Submit",
+                              style: GoogleFonts.openSans(
+                                textStyle: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 25,
+                                ),
+                              ),
                             ),
                           ),
                         ),
@@ -293,6 +270,7 @@ class _MyApp2State extends State<MyApp2> {
                               MaterialPageRoute(builder: (context) => MyApp2()),
                             );
                           } else {
+                            index=0;
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -304,30 +282,6 @@ class _MyApp2State extends State<MyApp2> {
                   ),
                 ],
               ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class Result extends StatefulWidget {
-  @override
-  _ResultState createState() => _ResultState();
-}
-
-class _ResultState extends State<Result> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Container(
-            width: 50.0,
-            height: 20.0,
-            child: Text(
-              "Hurray",
             ),
           ),
         ),

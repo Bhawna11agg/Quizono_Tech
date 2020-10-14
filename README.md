@@ -28,7 +28,7 @@ Once you have completed these steps, you are ready to start contributing by chec
 
 ## Screenshots
 
--Category Page<br>
-<img src="lib/images/Categories.jpeg" width=200 alt="Categories">
--Question Page<br>
+Category Page<br>
+<img src="lib/images/Categories.jpeg" width=200 alt="Categories"><br>
+Question Page<br>
 <img src="lib/images/Question.jpeg" width=200 alt="Question">

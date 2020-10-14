@@ -9,5 +9,5 @@ flutter
 
 Screenshots
 
-<img src="images/Categories.jpeg" width=200 alt="Home Page">
-<img src="images/Question.jpeg" width=200 alt="Home Page">
+<img src="images/Categories.jpeg" width=200 alt="Categories">
+<img src="images/Question.jpeg" width=200 alt="Question">

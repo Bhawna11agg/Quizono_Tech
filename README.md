@@ -7,7 +7,7 @@ challenge to the player.
 
 flutter
 
-Screenshots
+## Screenshots
 
-<img src="images/Categories.jpeg" width=200 alt="Categories">
-<img src="images/Question.jpeg" width=200 alt="Question">
+<img src="lib/images/Categories.jpeg" width=200 alt="Categories">
+<img src="lib/images/Question.jpeg" width=200 alt="Question">

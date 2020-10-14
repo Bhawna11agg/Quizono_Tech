@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quizono/question.dart';
+import 'file:///C:/Users/Bhawna%20Aggarwal/Desktop/quizono/lib/ui/question.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Categories extends StatefulWidget {

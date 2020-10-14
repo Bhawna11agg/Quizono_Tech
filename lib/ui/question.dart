@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quizono/module/Post.dart';
-import 'Oven_Trivia_Call.dart';
-import 'ui/Result.dart';
+import '../services/Oven_Trivia_Call.dart';
+import 'Result.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 AsyncSnapshot snapshot_copy;

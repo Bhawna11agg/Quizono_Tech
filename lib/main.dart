@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:quizono/categories.dart';
-import 'package:quizono/question.dart';
+import 'file:///C:/Users/Bhawna%20Aggarwal/Desktop/quizono/lib/ui/categories.dart';
+import 'file:///C:/Users/Bhawna%20Aggarwal/Desktop/quizono/lib/ui/question.dart';
 
 void main() {
   runApp(MyApp());

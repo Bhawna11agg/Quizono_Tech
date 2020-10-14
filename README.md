@@ -1,4 +1,4 @@
-# quizono
+# Quizono_Tech
 This application is specially developed for People who like to play challenging Quiz. The project provides an effective
 challenge to the player.
 
@@ -8,7 +8,7 @@ challenge to the player.
 [Flutter](https://flutter.dev/)
 <img src=https://uploads-ssl.webflow.com/5d359e0f47f4bbac7f9e3f50/5ef0a664ab7b6a925ddf8e64_flutter.png height=150px alt=Flutter/>
 
-## Steps to follow :scroll:
+## Set Up:
 
 ### 1. Fork it 
 
@@ -28,7 +28,7 @@ Once you have completed these steps, you are ready to start contributing by chec
 
 ## Screenshots
 
--Category Page
+-Category Page<br>
 <img src="lib/images/Categories.jpeg" width=200 alt="Categories">
--Question Page
+-Question Page<br>
 <img src="lib/images/Question.jpeg" width=200 alt="Question">
